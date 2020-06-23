@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+
+<style>
+    .bg {
+            
+        background-image: url("/static/Images/Queens.jpg");
+        
+        /* Full height */
+        height: 94%;
+        
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        }
+    
+    
+    .EventTable{
+        margin-top: 70px;
+    }
+    
+    .TopText{
+        color: white;
+
+        
+    }
+
+    html, body {
+        margin: 0;
+        height: 100%;
+}
+
+    .TableHeader{
+        color:white;
+        font-size: larger;
+    }
+    
+    </style>
+
+
+
+{% endblock %}
+
+{% block body %}
+
+
+
+<div class="bg">
+    
+    <h1 style="text-align: center" class="TopText">Find Events in your Area!</h1>
+        <div class = "row">
+            <div class = "col-sm-2">
+
+            </div>
+
+                <div class = "col-sm-8 EventTable">
+                    
+                    <table style="color: white; background-color: rgba(2, 2, 2, 0.8);">
+                        <tr>
+                            <th class="TableHeader">Artist Name</th>
+                            <th class="TableHeader">Event Name</th>
+                            <th class="TableHeader">Date</th>
+                            <th class="TableHeader">Event Location</th>
+                            <th class="TableHeader">Price</th>
+                            <th class="TableHeader">Pre Show Artist</th>
+                            <th class="TableHeader">Tickets Left</th>
+                            <th class="TableHeader">Buy</th>
+                            <th class="TableHeader">Input ID</th>
+                        </tr>
+                            
+                        {% for event in events %}
+                        <tr>
+                            <form class="form" action="/buyticket/{{event.id}}" method='POST'>
+                            <td style="color: white;">{{event.artistName}}</td>
+                            <td style="color: white;">{{event.eventName}}</td>
+                            <td style="color: white;">{{event.date}}</td>
+                            <td style="color: white;">{{event.location}}</td>
+                            <td style="color: white;">{{event.price}}</td>
+                            <td style="color: white;">{{event.preshowArtist}}</td>
+                            <td style="color: white;">{{event.ticketsLeft}}</td>
+                            <td style="color: white;"><input type="submit" value="Buy Ticket"></td>
+                            <td style="color: white;"><input type="text" id='userid' name='userid'></td>
+                            </form>
+
+                        </tr>
+                        {% endfor %}
+                    </table>   
+                    
+                
+                </div>
+        </div>
+</div>
+
+{% endblock %}

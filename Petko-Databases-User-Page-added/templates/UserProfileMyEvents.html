@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style>
+
+
+    .bg {
+        
+        background-image: url("/static/Images/Queens.jpg");
+        
+        /* Full height */
+        height: 94%;
+        
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;}
+
+    .TopText{
+        color: black;
+        Margin-top:20px;
+        
+    }
+    .AccountlabelInfo{
+        color: black;
+        text-align: left;
+        margin-left: 50px
+    }
+    .BottomText{
+        position:fixed;
+        color: black;
+        text-align: center;
+        margin-top: 400px;
+        
+    }
+
+    .Buttons{
+        
+        text-align: right;
+
+    }
+
+    .Border{
+        
+        background-color: rgb(231, 222, 222,0.4);
+        opacity: 0,001
+    }
+
+    .BoxUserDetails{
+        background-color: rgb(52, 41, 150);
+    }
+
+    .UserCard{
+        color: black
+
+    }
+
+    .AccountLabel{
+        text-align: right;
+        margin-right: 50px
+    }
+
+    .card{
+        Margin-top:50px
+    }
+
+    html, body {
+    margin: 0;
+    height: 100%;
+}
+
+.EventTable{
+    margin-left: 100px;
+}
+
+    
+
+</style>
+
+{% endblock %}
+
+{% block body %}
+<div class="bg">
+    <div class="container">
+        <div class="row Border">
+            <div class="col-sm-2">
+            
+            </div>
+            
+            <div class="col-sm-8 TopText">
+                <h1 class=" text-center">My Profile</h1> <br>
+                <h3 class=" text-center"> Review your Payment Methods:</h3>
+            </div>
+            
+            <div class="col-sm-2">
+            
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-sm-12">
+            <div class="card text-center">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/userprofile">My Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/myevents">My Tickets</a>
+                    </li>
+                    </ul>
+                </div>
+                <div class="card-body">  
+                    <div class = "col-sm-3">
+
+                    </div>
+                    <div class = "col-sm-8 EventTable">
+                        <div class="EventTable">
+                            <table>
+                                <tr>
+                                    <th class="TableHeader">Artist Name</th>
+                                    <th class="TableHeader">Tour Name</th>
+                                    <th class="TableHeader">Event Name</th>
+                                    <th class="TableHeader">Date</th>
+                                    <th class="TableHeader">Price</th>
+                                    <th class="TableHeader">Transaction Date</th>
+                                </tr>
+                            {% for concert in concerts %}        
+                
+                                <tr>
+                                    <td>{{concert.artistName}}</td>
+                                    <!-- <td>{Event.TourName}</td>
+                                    <td>{Event.EventName}</td>
+                                    <td>{Event.Date}</td>
+                                    <td>{Event.Price}</td>
+                                    <td>{Event.TransactionDate}</td> -->
+                                </tr>
+                            {% endfor %}
+                            </table>
+                        </div>
+            
+                        
+                        <div class = "col-sm-3">
+                        
+                        </div>
+                    </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+        
+    <div class="row">
+        <div class="col-sm-2">
+        
+        </div>
+        
+        <div class="col-sm-8">
+            
+        </div>
+        
+        <div class="col-sm-2">
+        
+        </div>
+    </div>
+    </div>
+
+
+
+
+</div>
+    
+
+
+{% endblock %}

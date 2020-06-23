@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style>
+    .bg {
+        
+        background-image: url("/static/Images/Queens.jpg");
+        
+        /* Full height */
+        height: 94%;
+        
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;}
+
+    .TopText{
+        color: black;
+        Margin-top:20px;
+        
+    }
+    .AccountlabelInfo{
+        color: black;
+        text-align: left;
+        margin-left: 50px
+    }
+    .BottomText{
+        position:fixed;
+        color: black;
+        text-align: center;
+        margin-top: 400px;
+        
+    }
+
+    .Buttons{
+        
+        text-align: right;
+
+    }
+
+    .Border{
+        
+        background-color: rgb(231, 222, 222,0.4);
+        opacity: 0,001
+    }
+
+    .BoxUserDetails{
+        background-color: rgb(52, 41, 150);
+    }
+
+    .UserCard{
+        color: black
+
+    }
+
+    .AccountLabel{
+        text-align: right;
+        margin-right: 50px
+    }
+
+    .card{
+        Margin-top:50px
+    }
+
+    html, body {
+    margin: 0;
+    height: 100%;
+}
+
+    
+
+</style>
+
+{% endblock %}
+
+{% block body %}
+<div class="bg">
+    <div class="container">
+        <div class="row Border">
+            <div class="col-sm-2">
+            
+            </div>
+            
+            <div class="col-sm-8 TopText">
+                <h1 class=" text-center">My Profile</h1> <br>
+                <h3 class=" text-center"> Review your Payment Methods:</h3>
+            </div>
+            
+            <div class="col-sm-2">
+            
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-sm-12">
+            <div class="card text-center">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Payment Methods</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My Tickets</a>
+                    </li>
+                    </ul>
+                </div>
+                <div class="card-body">  
+                    <div class="row">
+                        <div class="col-sm-6">                                
+                        <br>
+                        <br>
+                            <h5 class="AccountLabel">Credit Card Number:</h5>
+                            <h5 class="AccountLabel">Expiration Date:</h5>
+                            <h5 class="AccountLabel">Security Code:</h5>
+                            <br>
+                            <h5 class="AccountLabel">Paypal:</h5>
+                                                        
+                        </div>  
+                        
+                        <div class="col-sm-6"> 
+                        <br>
+                        <br>
+                            <h5 class="AccountlabelInfo" id="CCNumber">Placehoder</h5>
+                            <h5 class="AccountlabelInfo" id="CCExpirationDate">Placehoder</h5>
+                            <h5 class="AccountlabelInfo" id="CCSecretNumber">*****</h5>
+                            <br>
+                            <h5 class="AccountlabelInfo" id="Paypal">Füg hier einfach die Mail ein</h5>
+                               
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+        
+    <div class="row">
+        <div class="col-sm-2">
+        
+        </div>
+        
+        <div class="col-sm-8">
+            
+        </div>
+        
+        <div class="col-sm-2">
+        
+        </div>
+    </div>
+    </div>
+
+
+
+
+</div>
+    
+
+
+{% endblock %}

@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style>
+
+    .EventTable{
+        margin-left: 100px;}
+
+    .bg {
+        
+        background-image: url("/static/Images/Queens.jpg");
+        
+        /* Full height */
+        height: 94%;
+        
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;}
+
+    .TopText{
+        color: black;
+        Margin-top:20px;
+        
+    }
+    .AccountlabelInfo{
+        color: black;
+        text-align: left;
+        margin-left: 50px
+    }
+    .BottomText{
+        color: black;
+    }
+
+    .Buttons{
+        
+        text-align: right;
+
+    }
+
+    .Border{
+        
+        background-color: rgb(231, 222, 222,0.4);
+        opacity: 1;
+    }
+
+    .BoxUserDetails{
+        background-color: rgb(52, 41, 150);
+    }
+
+    .UserCard{
+        color: black
+
+    }
+
+    .AccountLabel{
+        text-align: right;
+        margin-right: 50px
+    }
+
+    .card{
+        Margin-top:50px
+    }
+
+    html, body {
+    margin: 0;
+    height: 100%;
+}
+    
+
+</style>
+
+{% endblock %}
+
+{% block body %}
+<div class="bg">
+    <div class="container">
+        <div class="row Border">
+            <div class="col-sm-2">
+            
+            </div>
+            
+            <div class="col-sm-8 TopText">
+                <h1 class=" text-center">My Profile</h1> <br>
+                <h3 class=" text-center"> Your Account Information:</h3>
+            </div>
+            
+            <div class="col-sm-2">
+            
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-sm-12">
+            <div class="card text-center">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/userprofile">My Profile</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="/myevents">My Tickets</a>
+                    </li> -->
+                    </ul>
+                </div>
+                <div class="card-body">  
+                    <div class="row">
+                        {% if user is defined %}
+                        <!-- <script>
+                            sessionStorage.setItem('user', {{user.id}})
+                        </script> -->
+                        <div class="col-sm-6">                                
+                        <br>
+                        <br>
+                            <h5 class="AccountLabel">Account ID:</h5>
+                            <h5 class="AccountLabel">First Name:</h5>
+                            <h5 class="AccountLabel">Last Name:</h5>
+                            <h5 class="AccountLabel">Birth Date:</h5>
+                            <h5 class="AccountLabel">Street/Nr:</h5>
+                            <h5 class="AccountLabel">City:</h5>
+                            <h5 class="AccountLabel">Zip Code:</h5>
+                            <h5 class="AccountLabel">Country:</h5>
+                            <h5 class="AccountLabel">Email:</h5>
+
+                             
+                        </div>  
+                        
+                        
+                        <div class="col-sm-6"> 
+                        <br>
+                        <br>
+                            <h5 class="AccountlabelInfo" id="AccountID">{{user.id}}</h5>
+                            <h5 class="AccountlabelInfo" id="FirstName">{{user.FirstName}}</h5>
+                            <h5 class="AccountlabelInfo" id="LastName">{{user.LastName}}</h5>
+                            <h5 class="AccountlabelInfo" id="BirthDate">{{user.BirthDate}}</h5>
+                            <h5 class="AccountlabelInfo" id="StreetNr">{{user.Street}}</h5>
+                            <h5 class="AccountlabelInfo" id="City">{{user.City}}</h5>
+                            <h5 class="AccountlabelInfo" id="ZipCode">{{user.PostalCode}}</h5>
+                            <h5 class="AccountlabelInfo" id="Country">{{user.Country}}</h5>
+                            <h5 class="AccountlabelInfo" id="Email">{{user.Email}}</h5>
+                        </div>
+                    </div>
+                        {% if concerts|length < 1 %}
+
+                        <h5>You have no Events yet</h5>
+
+                        {% else %}
+                        <div class="row" >
+                            <div class="col-12 text-center mt-5">
+                            <div style="text-align: center;">
+                                <h4>My Events:</h4>
+                                <table>
+                                    <tr>
+                                        <th class="TableHeader">Artist Name</th>
+                                        <th class="TableHeader">Event Name</th>
+                                        <th class="TableHeader">Location</th>
+                                        <th class="TableHeader">Date</th>
+                                        <th class="TableHeader">Price</th>
+                                        <!-- <th class="TableHeader">Transaction Date</th> -->
+                                    </tr>
+                                {% for concert in concerts %}        
+                    
+                                    <tr>
+                                        <td>{{concert.artistName}}</td>
+                                        <td>{{concert.eventName}}</td>
+                                        <td>{{concert.location}}</td>
+                                        <td>{{concert.date}}</td>
+                                        <td>{{concert.price}}</td>
+                                        <!-- <td>{Event.TransactionDate}</td> -->
+                                    </tr>
+                                {% endfor %}
+                                </table>
+                            </div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        {% else %}
+                        <div>
+                            <form class="form" action="/findUser" method="POST">
+                                <label for="userid">Input you User ID</label>
+                                <input type="text" name="userid" id="userid">
+                                <input type="submit" value="LogIn">
+                            </form>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+        
+    <div class="row">
+        <div class="col-2">
+        
+        </div>
+        
+        <div class="col-8" style="text-align: center; background-color: white;">
+            <h5 class="BottomText">Note: Please always remember your Account ID, as it is also your login Name to access all of our Products</h5>
+        </div>
+        
+        <div class="col-2">
+        
+        </div>
+        </div>
+        
+    </div>
+
+
+
+
+</div>
+    
+
+
+{% endblock %}
