@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<style>
+    .bg {
+        
+        background-image: url("/static/Images/Queens.jpg");
+        
+        /* Full height */
+        height: 94%;
+        
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;}
+
+    html, body {
+        margin: 0;
+        height: 100%;
+}
+    .ArtistCard{
+        margin-top: 20px;
+    }
+
+    .card-img-top{
+        height: 200px;
+        
+    }
+</style>
+
+{% endblock %}
+
+
+{% block body %}
+<div class ="bg">
+<div class="container">
+    <div class="row">
+
+        {% for artist in artists %}
+
+        <div class="col-sm">
+            <div class="card ArtistCard" style="width: 18rem;">
+                <img class="card-img-top" id="ArtistImage2" src= "{{ url_for('static', filename='pics/' + artist.name + '.jpg') }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title" id ="ArtistName2">{{artist.name}}</h5>
+                    <p class="card-text" id="ArtistDescription2">{{artist.description}}</p>
+                    <a href="/AllEventsFiltered/{{artist.name}}" class="btn btn-primary">Discover Events</a>
+                </div>
+            </div>
+            
+        </div>
+
+        {%endfor%}
+        
+        </div>
+    </div>
+
+
+{% endblock %}
